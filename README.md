@@ -29,3 +29,15 @@ You should define one for `require('markdown-togglecheck').toggle()`:
 ```lua
 vim.api.nvim_set_keymap('n', '<leader>nn', require('markdown-togglecheck').toggle)
 ```
+
+You also might add some highlight queries yourself for the check boxes.
+For example:
+
+```query
+;; YOUR_CONFIG/after/queries/markdown/highlights.scm
+
+; inherits: markdown
+
+(task_list_marker_unchecked) @comment
+(task_list_marker_checked) @function
+```
