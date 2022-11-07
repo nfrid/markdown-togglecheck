@@ -7,7 +7,8 @@ using treesitter.
 
 I've tested it only on `0.8` version.
 
-The plugin requires my other plugin - `treesitter-utils`.
+The plugin requires my other plugin -
+[treesitter-utils](https://github.com/NFrid/treesitter-utils).
 
 ## Installation
 
@@ -30,8 +31,8 @@ You should define one for `require('markdown-togglecheck').toggle()`:
 vim.api.nvim_set_keymap('n', '<leader>nn', require('markdown-togglecheck').toggle)
 ```
 
-You also might add some highlight queries yourself for the check boxes.
-For example:
+You also might add some highlight queries yourself for the check boxes. For
+example:
 
 ```query
 ;; YOUR_CONFIG/after/queries/markdown/highlights.scm
