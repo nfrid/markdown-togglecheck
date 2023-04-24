@@ -7,18 +7,20 @@ using treesitter.
 
 I've tested it only on `0.8` version.
 
-The plugin requires my other plugin -
-[treesitter-utils](https://github.com/NFrid/treesitter-utils).
+This plugin requires my other plugin -
+[treesitter-utils](https://github.com/nfrid/treesitter-utils).
 
 ## Installation
 
-Use your favorite package manager. Mine is `packer.nvim`:
+Use your favorite package manager.
 
+`lazy.nvim`:
 ```lua
-use({
-  'NFrid/markdown-togglecheck',
-  requires = 'NFrid/treesitter-utils',
-})
+{
+  'nfrid/markdown-togglecheck',
+  dependencies = { 'nfrid/treesitter-utils' },
+  ft = { 'markdown' },
+}
 ```
 
 ## Setup
