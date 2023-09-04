@@ -41,13 +41,31 @@ require('markdown-togglecheck').setup({
 
 The plugin does not provide default keybindings.
 
-You should define one for `require('markdown-togglecheck').toggle()`:
+You should define them yourself:
 
 ```lua
 -- toggle checked / create checkbox if it doesn't exist
-vim.api.nvim_set_keymap('n', '<leader>nn', require('markdown-togglecheck').toggle)
+vim.keymap.set('n', '<leader>nn', require('markdown-togglecheck').toggle, { desc = 'Toggle Checkmark' });
 -- toggle checkbox (it doesn't remember toggle state and always creates [ ])
-vim.api.nvim_set_keymap('n', '<leader>nN', require('markdown-togglecheck').toggle_box)
+vim.keymap.set('n', '<leader>nN', require('markdown-togglecheck').toggle_box, { desc = 'Toggle Checkbox' });
+```
+
+If you need dot repeat for this plugin you can use `operatorfunc` to bind the keys
+(they'll work the same way but will provide . repeat functionality):
+
+```lua
+local function toggle()
+    vim.go.operatorfunc = "v:lua.require'markdown-togglecheck'.toggle"
+    return 'g@l'
+end
+
+local function toggle_box()
+    vim.go.operatorfunc = "v:lua.require'markdown-togglecheck'.toggle_box"
+    return 'g@l'
+end
+
+vim.keymap.set('n', '<leader>nn', toggle, { expr = true, desc = 'Toggle Checkmark' })
+vim.keymap.set('n', '<leader>nN', toggle_box, { expr = true, desc = 'Toggle Checkbox' })
 ```
 
 You also might add some highlight queries yourself for the check boxes. For
