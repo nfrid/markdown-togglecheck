@@ -5,8 +5,6 @@ using treesitter.
 
 ## Requirements
 
-I've tested it only on `0.8` version.
-
 This plugin requires my other plugin -
 [treesitter-utils](https://github.com/nfrid/treesitter-utils).
 
@@ -79,3 +77,7 @@ example:
 (task_list_marker_unchecked) @comment
 (task_list_marker_checked) @function
 ```
+
+## Todo
+
+- replace treesitter-utils with new treesitter api
